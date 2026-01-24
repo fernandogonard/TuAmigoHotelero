@@ -9,7 +9,7 @@ import RoomCatalog from './components/RoomCatalog';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import GroupsSection from './components/GroupsSection';
-import Contact from './components/Contact';
+
 import WhatsAppFloat from './components/WhatsAppFloat';
 import Footer from './components/Footer';
 
