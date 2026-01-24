@@ -1,0 +1,113 @@
+.groups-section {
+  background-color: var(--color-secondary);
+  overflow: hidden;
+}
+
+.groups-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.groups-text {
+  padding-right: 2rem;
+}
+
+.section-title.text-left {
+  text-align: left;
+}
+
+.groups-description {
+  color: var(--color-tertiary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.groups-benefits {
+  margin-bottom: 2rem;
+}
+
+.group-benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--color-tertiary);
+  font-size: 1rem;
+}
+
+.benefit-icon {
+  margin-right: 1rem;
+  color: var(--color-accent);
+  font-size: 1.2rem;
+}
+
+.groups-contact-text {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.groups-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.group-tag {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+.groups-cta {
+  margin-top: 1rem;
+}
+
+.groups-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 1rem;
+  min-width: 320px;
+  min-height: 320px;
+  max-width: 420px;
+  max-height: 520px;
+}
+
+.groups-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.groups-image:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+  .groups-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .groups-text {
+    padding-right: 0;
+    order: 2;
+  }
+  
+  .groups-image {
+    order: 1;
+    height: 400px;
+  }
+}

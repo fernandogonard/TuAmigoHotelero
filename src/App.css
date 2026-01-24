@@ -1,0 +1,12 @@
+/* Estilos para el componente App */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+main {
+  padding-top: 0; /* La navbar ya tiene su propio espacio */
+  min-height: calc(100vh - 80px); /* Restar la altura del footer */
+}

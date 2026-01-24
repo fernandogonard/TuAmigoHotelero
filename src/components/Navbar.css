@@ -1,0 +1,127 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  padding: 1rem 0;
+  transition: var(--transition-all);
+}
+
+.navbar.scrolled {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  padding: 0.8rem 0;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-left: 0.5rem;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-item {
+  margin: 0 1rem;
+}
+
+.navbar-item a {
+  font-weight: 500;
+  color: var(--color-primary);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.navbar-item a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: var(--transition-all);
+}
+
+.navbar-item a:hover:after {
+  width: 100%;
+}
+
+.navbar-cta {
+  background-color: var(--color-accent);
+  color: white !important;
+  padding: 0.6rem 1.2rem !important;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-all);
+}
+
+.navbar-cta:hover {
+  background-color: #FF5722;
+  transform: translateY(-2px);
+}
+
+.navbar-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-primary);
+}
+
+@media (max-width: 992px) {
+  .navbar-toggle {
+    display: block;
+  }
+  
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--color-white);
+    width: 80%;
+    height: 100vh;
+    padding-top: 5rem;
+    transition: var(--transition-all);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .navbar-menu.active {
+    right: 0;
+  }
+  
+  .navbar-item {
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .navbar-item a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+  }
+  
+  .navbar-cta {
+    margin-top: 1rem;
+    display: inline-block;
+  }
+}

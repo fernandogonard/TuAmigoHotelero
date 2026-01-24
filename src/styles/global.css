@@ -1,0 +1,229 @@
+/* Variables globales */
+:root {
+  --color-primary: #1B4965; /* Azul petróleo */
+  --color-secondary: #F0EAD6; /* Beige arena */
+  --color-tertiary: #6C757D; /* Gris humo */
+  --color-white: #FFFFFF; /* Blanco */
+  --color-accent: #FF7043; /* Naranja de acento */
+  
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Poppins', sans-serif;
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  
+  --transition-all: all 0.3s ease;
+  
+  --max-width-container: 1200px;
+}
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-all);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Contenedores y layouts */
+.container {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-family: var(--font-secondary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-tertiary);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-all);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: #FF5722;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover {
+  background-color: #16394F;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  font-size: 1.1rem;
+  padding: 1rem 2.2rem;
+}
+
+/* Flexbox y Grid Helpers */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .hidden-sm {
+    display: none;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+
+/* Utilidades */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 3rem; }
+
+.mx-auto { margin-left: auto; margin-right: auto; }
