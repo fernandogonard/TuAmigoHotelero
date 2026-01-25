@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 
 // Importar componentes
+import Contact from "./components/Contact/Contact";
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
