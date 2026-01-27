@@ -1,39 +1,41 @@
 .hero {
-  height: 100vh;
-  min-height: 700px;
   position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   color: var(--color-white);
+
   background-image: url('../assets/images/hero-mar-del-plata.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
 }
 
+/* Overlay */
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
+/* Contenedor */
 .hero-container {
   position: relative;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
+/* Contenido */
 .hero-content {
   max-width: 800px;
   text-align: center;
+  padding: 0 1rem;
 }
 
+/* Títulos */
 .hero-title {
   font-family: var(--font-secondary);
   font-size: 3.5rem;
@@ -45,16 +47,18 @@
 .hero-subtitle {
   font-size: 1.3rem;
   margin-bottom: 2.5rem;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   max-width: 650px;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* CTA */
 .hero-cta {
   margin-bottom: 3rem;
 }
 
+/* Beneficios */
 .hero-benefits {
   display: flex;
   justify-content: center;
@@ -102,27 +106,33 @@
   line-height: 1.4;
 }
 
+/* ===================== */
+/* 📱 MOBILE FIXES */
+/* ===================== */
+
 @media (max-width: 768px) {
   .hero {
-    min-height: 600px;
+    padding-top: 72px; /* altura real del header */
+    min-height: calc(100vh - 72px);
   }
-  
+
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
   }
-  
+
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
-  
+
   .hero-benefits {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    margin-top: 2rem;
   }
-  
+
   .benefit-item {
-    width: 100%;
     max-width: 280px;
   }
 }
