@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.509d81e4.css",
-    "main.js": "/static/js/main.2b6669cf.js",
-    "static/media/depor.png": "/static/media/depor.76660842875e6e5769c1.png",
+    "main.css": "/static/css/main.c720e725.css",
+    "main.js": "/static/js/main.efeb1ce4.js",
+    "static/media/hero-mar-del-plata.jpg": "/static/media/hero-mar-del-plata.f405d945a0ffaca72990.jpg",
     "static/media/testimonial-4.png": "/static/media/testimonial-4.f22f1f54a35e8930e375.png",
     "static/media/testimonial-1.png": "/static/media/testimonial-1.f11f92bea8f9ff219247.png",
+    "static/media/hero-mar-del-plata-grupos.jpg": "/static/media/hero-mar-del-plata-grupos.e13c372ac315754f8313.jpg",
     "static/media/room-family-suite.jpg": "/static/media/room-family-suite.d2424d643d0e622c8d85.jpg",
     "static/media/room-group.jpg": "/static/media/room-group.680fa438f9c8e45ce3e0.jpg",
     "static/media/room-double-standard.jpg": "/static/media/room-double-standard.6bc269edd6da8ae50f9b.jpg",
-    "static/media/hero-mar-del-plata.jpg": "/static/media/hero-mar-del-plata.d3c41808fead9434ea54.jpg",
     "static/media/room-ocean-view.jpg": "/static/media/room-ocean-view.4e6263e70c3cd401d67d.jpg",
     "static/media/testimonial-3.png": "/static/media/testimonial-3.6c9f09248630b18a51d9.png",
     "static/media/room-single-economy.jpg": "/static/media/room-single-economy.b2ee2dea278a9f1997b1.jpg",
     "static/media/room-triple-premium.jpg": "/static/media/room-triple-premium.29049c840674373a6f60.jpg",
     "static/media/testimonial-2.png": "/static/media/testimonial-2.e4018b527f9ae84ab28d.png",
     "index.html": "/index.html",
-    "main.509d81e4.css.map": "/static/css/main.509d81e4.css.map",
-    "main.2b6669cf.js.map": "/static/js/main.2b6669cf.js.map"
+    "main.c720e725.css.map": "/static/css/main.c720e725.css.map",
+    "main.efeb1ce4.js.map": "/static/js/main.efeb1ce4.js.map"
   },
   "entrypoints": [
-    "static/css/main.509d81e4.css",
-    "static/js/main.2b6669cf.js"
+    "static/css/main.c720e725.css",
+    "static/js/main.efeb1ce4.js"
   ]
 }
