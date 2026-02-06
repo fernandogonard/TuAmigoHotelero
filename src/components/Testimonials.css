@@ -8,12 +8,16 @@
   color: var(--color-white);
 }
 
+/* ================= GRID ================= */
+
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
   margin: 3rem 0;
 }
+
+/* ================= CARD ================= */
 
 .testimonial-card {
   background-color: rgba(255, 255, 255, 0.1);
@@ -30,6 +34,8 @@
   transform: translateY(-10px);
   box-shadow: var(--shadow-lg);
 }
+
+/* ================= CONTENT ================= */
 
 .testimonial-content {
   position: relative;
@@ -53,12 +59,16 @@
   margin-bottom: 1rem;
 }
 
+/* ================= RATING ================= */
+
 .testimonial-rating {
   color: var(--color-accent);
   font-size: 1.2rem;
   display: flex;
   gap: 0.3rem;
 }
+
+/* ================= AUTHOR ================= */
 
 .testimonial-author {
   display: flex;
@@ -84,6 +94,8 @@
   opacity: 0.8;
 }
 
+/* ================= CTA ================= */
+
 .testimonial-cta {
   text-align: center;
   margin-top: 3rem;
@@ -95,8 +107,31 @@
   opacity: 0.9;
 }
 
+/* ================= MOBILE FIX ================= */
+
 @media (max-width: 768px) {
   .testimonials-grid {
     grid-template-columns: 1fr;
+    justify-items: center; /* 👈 centra las cards */
+  }
+
+  .testimonial-card {
+    width: 100%;
+    max-width: 360px; /* 👈 evita cards gigantes */
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .testimonial-author {
+    justify-content: center;
+  }
+
+  .testimonial-rating {
+    justify-content: center;
+  }
+
+  .quote-mark {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

@@ -1,62 +1,63 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faBriefcase, faGraduationCap, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faUsers,
+  faBriefcase,
+  faGraduationCap,
+  faCalendarAlt
+} from '@fortawesome/free-solid-svg-icons';
 import './GroupsSection.css';
 
 const GroupsSection = () => {
   return (
-    <section id="groups" className="groups-section section">
-      <div className="container">
+    <section id="groups" className="groups-section">
+      <div className="groups-overlay">
         <div className="groups-content">
-          <div className="groups-text">
-            <h2 className="section-title text-left">¿Viajás en grupo o con tu equipo?</h2>
-            <p className="groups-description">
-              Coordinamos alojamiento para delegaciones, empresas o viajes familiares grandes con tarifas preferenciales y condiciones especiales.
-            </p>
-            
-            <ul className="groups-benefits">
-              <li className="group-benefit-item">
-                <FontAwesomeIcon icon={faUsers} className="benefit-icon" />
-                <span>Habitaciones múltiples o bloque de habitaciones</span>
-              </li>
-              <li className="group-benefit-item">
-                <FontAwesomeIcon icon={faBriefcase} className="benefit-icon" />
-                <span>Hoteles con salones para eventos corporativos</span>
-              </li>
-              <li className="group-benefit-item">
-                <FontAwesomeIcon icon={faGraduationCap} className="benefit-icon" />
-                <span>Tarifas especiales para delegaciones estudiantiles</span>
-              </li>
-              <li className="group-benefit-item">
-                <FontAwesomeIcon icon={faCalendarAlt} className="benefit-icon" />
-                <span>Reservas flexibles para grupos grandes</span>
-              </li>
-            </ul>
-            
-            <p className="groups-contact-text">
-              Tenemos experiencia organizando alojamiento para:
-            </p>
-            
-            <div className="groups-tags">
-              <span className="group-tag">Equipos deportivos</span>
-              <span className="group-tag">Viajes de egresados</span>
-              <span className="group-tag">Eventos empresariales</span>
-              <span className="group-tag">Familias numerosas</span>
-              <span className="group-tag">Convenciones</span>
-              <span className="group-tag">Viajes de estudio</span>
-            </div>
-            
-            <a href="https://wa.me/5492235203369?text=Hola!%20Quiero%20consultar%20por%20alojamiento%20grupal" className="btn btn-primary btn-lg groups-cta" target="_blank" rel="noopener noreferrer">
-              Consultá por alojamiento grupal
-            </a>
+
+          <h2 className="groups-title">
+            ¿Viajás en grupo o con tu equipo?
+          </h2>
+
+          <p className="groups-description">
+            Especialistas en alojamiento grupal en Mar del Plata.
+            Desde delegaciones deportivas hasta congresos y viajes educativos.
+          </p>
+
+          <ul className="groups-benefits">
+            <li>
+              <FontAwesomeIcon icon={faUsers} />
+              Habitaciones múltiples o bloque de habitaciones
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faBriefcase} />
+              Hoteles con salones para eventos corporativos
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faGraduationCap} />
+              Tarifas especiales para delegaciones estudiantiles
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCalendarAlt} />
+              Reservas flexibles para grupos grandes
+            </li>
+          </ul>
+
+          <div className="groups-tags">
+            <span>Equipos deportivos</span>
+            <span>Viajes de egresados</span>
+            <span>Convenciones</span>
+            <span>Eventos empresariales</span>
           </div>
-          
-          <div className="groups-image">
-            <img 
-              src={require('../assets/images/depor.png')}
-              alt="Alojamiento para grupos en Mar del Plata" 
-            />
-          </div>
+
+          <a
+            href="https://wa.me/5492235203369?text=Hola!%20Quiero%20consultar%20por%20alojamiento%20grupal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="groups-cta"
+          >
+            Pedí tu propuesta para grupos
+          </a>
+
         </div>
       </div>
     </section>

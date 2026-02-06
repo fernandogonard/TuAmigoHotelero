@@ -1,3 +1,4 @@
+/* ================= NAVBAR ================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -6,21 +7,26 @@
   z-index: 1000;
   background-color: transparent;
   padding: 1rem 0;
-  transition: var(--transition-all);
+  transition: background-color 0.3s ease,
+              padding 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
+/* Navbar al hacer scroll */
 .navbar.scrolled {
   background-color: var(--color-white);
   box-shadow: var(--shadow-sm);
   padding: 0.8rem 0;
 }
 
+/* ================= CONTENEDOR ================= */
 .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* ================= LOGO ================= */
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -30,27 +36,43 @@
   font-family: var(--font-secondary);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: white;
   margin-left: 0.5rem;
+  transition: color 0.3s ease;
 }
 
+/* Logo al scrollear */
+.navbar.scrolled .logo-text {
+  color: var(--color-primary);
+}
+
+/* ================= MENU ================= */
 .navbar-menu {
   display: flex;
   align-items: center;
 }
 
+/* Items */
 .navbar-item {
   margin: 0 1rem;
 }
 
+/* Links */
 .navbar-item a {
   font-weight: 500;
-  color: var(--color-primary);
+  color: white;
   position: relative;
   padding: 0.5rem 0;
+  transition: color 0.3s ease;
 }
 
-.navbar-item a:after {
+/* Links al scrollear */
+.navbar.scrolled .navbar-item a {
+  color: var(--color-primary);
+}
+
+/* Subrayado hover */
+.navbar-item a::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -58,19 +80,21 @@
   width: 0;
   height: 2px;
   background-color: var(--color-accent);
-  transition: var(--transition-all);
+  transition: width 0.3s ease;
 }
 
-.navbar-item a:hover:after {
+.navbar-item a:hover::after {
   width: 100%;
 }
 
+/* ================= CTA ================= */
 .navbar-cta {
   background-color: var(--color-accent);
   color: white !important;
   padding: 0.6rem 1.2rem !important;
   border-radius: var(--border-radius-md);
-  transition: var(--transition-all);
+  transition: background-color 0.3s ease,
+              transform 0.3s ease;
 }
 
 .navbar-cta:hover {
@@ -78,18 +102,25 @@
   transform: translateY(-2px);
 }
 
+/* ================= TOGGLE MOBILE ================= */
 .navbar-toggle {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.navbar.scrolled .navbar-toggle {
   color: var(--color-primary);
 }
 
+/* ================= MOBILE ================= */
 @media (max-width: 992px) {
   .navbar-toggle {
     display: block;
   }
-  
+
   .navbar-menu {
     position: fixed;
     top: 0;
@@ -100,26 +131,27 @@
     width: 80%;
     height: 100vh;
     padding-top: 5rem;
-    transition: var(--transition-all);
+    transition: right 0.3s ease;
     box-shadow: var(--shadow-lg);
   }
-  
+
   .navbar-menu.active {
     right: 0;
   }
-  
+
   .navbar-item {
     margin: 1rem 0;
     width: 100%;
     text-align: center;
   }
-  
+
   .navbar-item a {
     display: block;
     padding: 1rem 0;
     font-size: 1.2rem;
+    color: var(--color-primary);
   }
-  
+
   .navbar-cta {
     margin-top: 1rem;
     display: inline-block;

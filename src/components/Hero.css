@@ -9,6 +9,9 @@
   background-size: cover;
   background-position: center;
 }
+.container {
+  padding-left: 0 !important;
+}
 
 /* Overlay */
 .hero-overlay {
@@ -24,15 +27,18 @@
   z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
+  padding-left: 0.5%; /* ⬅️ CASI AL BORDE */
 }
+
 
 /* Contenido */
 .hero-content {
-  max-width: 800px;
-  text-align: center;
-  padding: 0 1rem;
+  max-width: 560px;
+  text-align: left;
+  padding-left: 0;   /* ⬅️ clave */
+  padding-right: 1rem;
 }
 
 /* Títulos */
@@ -61,11 +67,13 @@
 /* Beneficios */
 .hero-benefits {
   display: flex;
-  justify-content: center;
-  gap: 2.5rem;
+  justify-content: flex-start;
+  gap: 1.2rem;
   margin-top: 3rem;
   flex-wrap: wrap;
 }
+
+
 
 .benefit-item {
   display: flex;
@@ -135,4 +143,17 @@
   .benefit-item {
     max-width: 280px;
   }
+  .hero-container {
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-benefits {
+    justify-content: center;
+  }
+
 }

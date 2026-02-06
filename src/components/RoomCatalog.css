@@ -1,15 +1,35 @@
+/* =========================================================
+   ROOM CATALOG – VERSION FINAL DEFINITIVA
+   ========================================================= */
+
+/* ================= CONTENEDOR GENERAL ================= */
+
 .room-catalog {
   background-color: var(--color-white);
 }
+
+/* contenedor principal centrado */
+.room-catalog .container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+/* ================= FILTROS ================= */
 
 .filters-container {
   background-color: var(--color-secondary);
   padding: 2rem;
   border-radius: var(--border-radius-lg);
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem auto; /* 🔑 centrado real */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .filter-group {
@@ -23,6 +43,8 @@
   color: var(--color-primary);
 }
 
+/* ================= SELECT ================= */
+
 .filter-select {
   padding: 0.8rem;
   border: 1px solid #ddd;
@@ -32,20 +54,24 @@
   font-family: var(--font-primary);
   outline: none;
   cursor: pointer;
+  transition: border-color 0.3s ease;
 }
 
 .filter-select:focus {
   border-color: var(--color-primary);
 }
 
+/* ================= SLIDER ================= */
+
 .price-slider {
   -webkit-appearance: none;
+  appearance: none;
   width: 100%;
   height: 8px;
   background: #ddd;
-  outline: none;
   border-radius: 4px;
   margin-top: 0.5rem;
+  cursor: pointer;
 }
 
 .price-slider::-webkit-slider-thumb {
@@ -53,18 +79,22 @@
   appearance: none;
   width: 20px;
   height: 20px;
-  border-radius: 50%;
   background: var(--color-accent);
+  border-radius: 50%;
   cursor: pointer;
+  border: none;
 }
 
 .price-slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
-  border-radius: 50%;
   background: var(--color-accent);
+  border-radius: 50%;
   cursor: pointer;
+  border: none;
 }
+
+/* ================= SERVICIOS FILTRO ================= */
 
 .services-filter {
   grid-column: 1 / -1;
@@ -87,34 +117,42 @@
 }
 
 .service-checkbox label {
-  margin-bottom: 0;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: normal;
   cursor: pointer;
 }
+
+/* ================= GRID DE HABITACIONES ================= */
 
 .rooms-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
+  align-items: stretch;
+  justify-items: center;
 }
 
+/* ================= CARD ================= */
+
 .room-card {
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition-all);
   background-color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 420px;
+  width: 100%;
 }
 
 .room-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
 }
+
+/* ================= IMAGEN ================= */
 
 .room-image {
   position: relative;
@@ -130,7 +168,7 @@
 }
 
 .room-card:hover .room-image img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .room-price {
@@ -141,7 +179,7 @@
   color: var(--color-white);
   padding: 0.5rem 1rem;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border-top-left-radius: var(--border-radius-md);
 }
 
@@ -150,11 +188,13 @@
   font-weight: 400;
 }
 
+/* ================= CONTENIDO ================= */
+
 .room-content {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
 }
 
 .room-title {
@@ -171,52 +211,56 @@
   line-height: 1.5;
 }
 
+/* ================= ICONOS ================= */
+
 .room-services {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.8rem;
   margin-bottom: 1.5rem;
 }
 
 .service-icon {
   width: 30px;
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: var(--color-secondary);
   color: var(--color-primary);
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.8rem;
   position: relative;
 }
 
 .service-tooltip {
   position: absolute;
-  bottom: 100%;
+  bottom: 130%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
   padding: 0.3rem 0.6rem;
   border-radius: var(--border-radius-sm);
-  font-size: 0.8rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition-all);
+  font-size: 0.75rem;
   white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
 }
 
 .service-icon:hover .service-tooltip {
   opacity: 1;
-  visibility: visible;
-  bottom: 120%;
 }
+
+/* ================= CTA ================= */
 
 .room-cta {
   margin-top: auto;
   width: 100%;
 }
+
+/* ================= EMPTY STATE ================= */
 
 .no-rooms-message {
   text-align: center;
@@ -226,16 +270,27 @@
   border-radius: var(--border-radius-md);
 }
 
+/* ================= MOBILE ================= */
+
 @media (max-width: 768px) {
   .filters-container {
     grid-template-columns: 1fr;
+    padding: 1.5rem;
   }
-  
+
   .service-checkboxes {
     gap: 0.5rem;
   }
-  
+
   .service-checkbox {
     flex-basis: 50%;
+  }
+
+  .rooms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .room-card {
+    max-width: 360px;
   }
 }

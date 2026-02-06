@@ -2,17 +2,23 @@
   background-color: var(--color-secondary);
 }
 
+/* ================= CONTENEDOR ================= */
+
 .steps-container {
   display: flex;
   justify-content: space-between;
+  align-items: stretch;
   flex-wrap: wrap;
   margin-top: 3rem;
   gap: 2rem;
 }
 
+/* ================= CARD ================= */
+
 .step-card {
   flex: 1;
   min-width: 280px;
+  max-width: 400px;
   background-color: var(--color-white);
   border-radius: var(--border-radius-lg);
   padding: 2.5rem 2rem;
@@ -31,6 +37,8 @@
   box-shadow: var(--shadow-lg);
 }
 
+/* ================= NUMERO ================= */
+
 .step-number {
   position: absolute;
   top: -20px;
@@ -48,6 +56,8 @@
   font-weight: 700;
   box-shadow: var(--shadow-sm);
 }
+
+/* ================= CONTENIDO ================= */
 
 .step-icon {
   font-size: 2.5rem;
@@ -73,6 +83,8 @@
 .step-cta {
   margin-top: auto;
 }
+
+/* ================= LEGACY (NO SE ROMPE) ================= */
 
 .how-it-works-card {
   display: flex;
@@ -103,19 +115,30 @@
   color: #333;
 }
 
+/* ================= TABLET ================= */
+
 @media (max-width: 992px) {
   .steps-container {
     justify-content: center;
   }
-  
+
   .step-card {
-    flex-basis: calc(50% - 1rem);
-    max-width: 400px;
+    flex: 0 1 calc(50% - 1rem);
+    margin: 0 auto;
   }
 }
 
+/* ================= MOBILE (FIX DEFINITIVO) ================= */
+
 @media (max-width: 768px) {
+  .steps-container {
+    flex-direction: column;
+    align-items: center;   /* 🔑 CLAVE */
+  }
+
   .step-card {
-    flex-basis: 100%;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;        /* 🔑 CENTRADO REAL */
   }
 }

@@ -1,113 +1,103 @@
 .groups-section {
-  background-color: var(--color-secondary);
-  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('../assets/images/hero-mar-del-plata-grupos.jpg');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+/* Degradado que se disuelve hacia la izquierda */
+.groups-overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.92) 35%,
+    rgba(255, 255, 255, 0.75) 55%,
+    rgba(255, 255, 255, 0.3) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  display: flex;
+  align-items: center;
 }
 
 .groups-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  max-width: 650px;
+  padding: 80px 60px;
+  color: #1f2937;
 }
 
-.groups-text {
-  padding-right: 2rem;
-}
-
-.section-title.text-left {
-  text-align: left;
+.groups-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 16px;
 }
 
 .groups-description {
-  color: var(--color-tertiary);
   font-size: 1.1rem;
+  margin-bottom: 28px;
   line-height: 1.6;
-  margin-bottom: 2rem;
 }
 
 .groups-benefits {
-  margin-bottom: 2rem;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
 }
 
-.group-benefit-item {
+.groups-benefits li {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
-  color: var(--color-tertiary);
+  gap: 12px;
+  margin-bottom: 12px;
   font-size: 1rem;
 }
 
-.benefit-icon {
-  margin-right: 1rem;
-  color: var(--color-accent);
-  font-size: 1.2rem;
-}
-
-.groups-contact-text {
-  color: var(--color-primary);
-  font-weight: 600;
-  margin-bottom: 1rem;
+.groups-benefits svg {
+  color: #f97316;
 }
 
 .groups-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-bottom: 2rem;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
-.group-tag {
-  background-color: var(--color-white);
-  color: var(--color-primary);
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
+.groups-tags span {
+  background: #e5e7eb;
+  padding: 6px 14px;
+  border-radius: 20px;
   font-size: 0.85rem;
-  font-weight: 500;
-  box-shadow: var(--shadow-sm);
 }
 
 .groups-cta {
-  margin-top: 1rem;
+  display: inline-block;
+  background: #f97316;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 
-.groups-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  padding: 1rem;
-  min-width: 320px;
-  min-height: 320px;
-  max-width: 420px;
-  max-height: 520px;
+.groups-cta:hover {
+  background: #ea580c;
 }
 
-.groups-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-  background: #fff;
-}
-
-.groups-image:hover img {
-  transform: scale(1.05);
-}
-
-@media (max-width: 992px) {
+/* Responsive */
+@media (max-width: 768px) {
   .groups-content {
-    grid-template-columns: 1fr;
+    padding: 60px 30px;
   }
-  
-  .groups-text {
-    padding-right: 0;
-    order: 2;
-  }
-  
-  .groups-image {
-    order: 1;
-    height: 400px;
+
+  .groups-title {
+    font-size: 2rem;
   }
 }
