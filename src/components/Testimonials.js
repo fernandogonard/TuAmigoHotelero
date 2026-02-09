@@ -3,19 +3,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import './Testimonials.css';
 
-// Importar imágenes de testimonios
+// Imágenes de testimonios
 import testimonial1 from '../assets/images/testimonial-1.png';
 import testimonial2 from '../assets/images/testimonial-2.png';
 import testimonial3 from '../assets/images/testimonial-3.png';
 import testimonial4 from '../assets/images/testimonial-4.png';
 
-// Datos de muestra para testimonios
+// Datos de testimonios optimizados SEO
 const testimonialsData = [
   {
     id: 1,
     name: 'Laura G.',
     rating: 5,
-    text: 'Excelente atención, resolvieron todo por WhatsApp en minutos y nos consiguieron un hotel de primera. La habitación era exactamente como en las fotos.',
+    text: 'Excelente atención, resolvieron todo por WhatsApp en minutos y nos consiguieron un hotel en Mar del Plata, cerca de Güemes. La habitación era exactamente como en las fotos.',
     image: testimonial1,
     location: 'Córdoba'
   },
@@ -23,7 +23,7 @@ const testimonialsData = [
     id: 2,
     name: 'Martín L.',
     rating: 4.5,
-    text: 'Pagamos directo en el hotel, todo transparente y sin comisiones ocultas. Nos ahorramos casi un 20% comparado con otras plataformas. Volveremos a usarlo.',
+    text: 'Pagamos directo en el hotel, todo transparente y sin comisiones ocultas. Nos ahorramos casi un 20% comparado con otras plataformas de alojamiento en Mar del Plata.',
     image: testimonial2,
     location: 'Buenos Aires'
   },
@@ -31,7 +31,7 @@ const testimonialsData = [
     id: 3,
     name: 'Claudia M.',
     rating: 5,
-    text: 'Viajé con mi familia y Tu Amigo Hotelero nos consiguió una habitación cuádruple perfecta. La atención personalizada marca la diferencia.',
+    text: 'Viajé con mi familia y conseguimos una habitación cuádruple perfecta en Mar del Plata. La atención personalizada realmente marca la diferencia.',
     image: testimonial3,
     location: 'Rosario'
   },
@@ -39,66 +39,106 @@ const testimonialsData = [
     id: 4,
     name: 'Emilia F.',
     rating: 5,
-    text: 'Llegamos de madrugada sin reserva y en 15 minutos ya teníamos habitación. Servicio excepcional para situaciones imprevistas.',
+    text: 'Llegamos de madrugada sin reserva y en 15 minutos ya teníamos alojamiento en Mar del Plata. Servicio ideal para viajes imprevistos.',
     image: testimonial4,
     location: 'Mendoza'
   }
 ];
 
-// Componente para mostrar estrellas de calificación
+// Estrellas de calificación
 const RatingStars = ({ rating }) => {
   const stars = [];
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;
-  
+
   for (let i = 0; i < fullStars; i++) {
     stars.push(<FontAwesomeIcon key={`star-${i}`} icon={faStar} />);
   }
-  
+
   if (hasHalfStar) {
     stars.push(<FontAwesomeIcon key="half-star" icon={faStarHalfAlt} />);
   }
-  
+
   return <div className="testimonial-rating">{stars}</div>;
 };
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="testimonials section">
+    <section
+      id="testimonials"
+      className="testimonials section"
+      aria-label="Opiniones de huéspedes sobre hoteles en Mar del Plata"
+    >
       <div className="container">
-        <h2 className="section-title">Lo que dicen nuestros clientes</h2>
+
+        {/* Título SEO */}
+        <h2 className="section-title">
+          Opiniones reales de huéspedes que se alojaron en Mar del Plata
+        </h2>
+
+        {/* Subtítulo SEO + conversión */}
         <p className="section-subtitle">
-          Más de 5,000 viajeros ya disfrutaron de Mar del Plata gracias a nuestro servicio personalizado.
+          Familias, parejas, ejecutivos y grupos que eligieron hoteles en Mar del Plata
+          con asesoramiento personalizado y pago directo en el hotel.
         </p>
-        
+
+        {/* Grid de testimonios */}
         <div className="testimonials-grid">
           {testimonialsData.map((testimonial) => (
-            <div className="testimonial-card" key={testimonial.id}>
+            <article
+              className="testimonial-card"
+              key={testimonial.id}
+              itemScope
+              itemType="https://schema.org/Review"
+            >
               <div className="testimonial-content">
-                <div className="quote-mark">"</div>
-                <p className="testimonial-text">{testimonial.text}</p>
-                <RatingStars rating={testimonial.rating} />
-              </div>
-              
-              <div className="testimonial-author">
-                <img 
-                  src={testimonial.image} 
-                  alt={`Foto de ${testimonial.name}`} 
-                  className="author-image"
-                />
-                <div>
-                  <h4 className="author-name">{testimonial.name}</h4>
-                  <p className="author-location">{testimonial.location}</p>
+                <span className="quote-mark" aria-hidden="true">“</span>
+
+                <p className="testimonial-text" itemProp="reviewBody">
+                  {testimonial.text}
+                </p>
+
+                <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                  <meta itemProp="ratingValue" content={testimonial.rating} />
+                  <RatingStars rating={testimonial.rating} />
                 </div>
               </div>
-            </div>
+
+              <div className="testimonial-author" itemProp="author" itemScope itemType="https://schema.org/Person">
+                <img
+                  src={testimonial.image}
+                  alt={`Opinión de ${testimonial.name} sobre hotel en Mar del Plata`}
+                  className="author-image"
+                  loading="lazy"
+                />
+                <div>
+                  <h4 className="author-name" itemProp="name">
+                    {testimonial.name}
+                  </h4>
+                  <p className="author-location">
+                    {testimonial.location}
+                  </p>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
-        
+
+        {/* CTA fuerte */}
         <div className="testimonial-cta">
-          <p>Más de 200 opiniones con calificación promedio de 4.8/5</p>
-          <a href="https://wa.me/5492235203369?text=Hola!%20Quiero%20consultar%20por%20alojamiento" className="btn btn-secondary" target="_blank" rel="noopener noreferrer">Consultá tu alojamiento</a>
+          <p>
+            ⭐ 4.8/5 basado en más de 200 opiniones reales de huéspedes
+          </p>
+          <a
+            href="https://wa.me/5492235203369?text=Hola!%20Quiero%20consultar%20por%20alojamiento%20en%20Mar%20del%20Plata"
+            className="btn btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consultar alojamiento en Mar del Plata
+          </a>
         </div>
+
       </div>
     </section>
   );

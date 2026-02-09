@@ -1,159 +1,209 @@
+/* ============================= */
+/* HERO – TU AMIGO HOTELERO */
+/* ============================= */
+
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  color: var(--color-white);
+  color: #ffffff;
 
-  background-image: url('../assets/images/hero-mar-del-plata.jpg');
   background-size: cover;
   background-position: center;
-}
-.container {
-  padding-left: 0 !important;
+  background-repeat: no-repeat;
 }
 
-/* Overlay */
+/* ============================= */
+/* OVERLAY CINEMATOGRÁFICO */
+/* ============================= */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.55) 40%,
+    rgba(0, 0, 0, 0.25) 65%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
   z-index: 1;
 }
 
-/* Contenedor */
+/* ============================= */
+/* CONTENEDOR */
+/* ============================= */
 .hero-container {
   position: relative;
   z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   width: 100%;
-  padding-left: 0.5%; /* ⬅️ CASI AL BORDE */
+  display: flex;
+  justify-content: flex-start;
 }
 
-
-/* Contenido */
+/* ============================= */
+/* CAJA DE CONTENIDO PREMIUM */
+/* ============================= */
 .hero-content {
-  max-width: 560px;
-  text-align: left;
-  padding-left: 0;   /* ⬅️ clave */
-  padding-right: 1rem;
+  max-width: 620px;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(6px);
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
 }
 
-/* Títulos */
+/* ============================= */
+/* TÍTULO PRINCIPAL (H1 SEO) */
+/* ============================= */
 .hero-title {
   font-family: var(--font-secondary);
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 3.6rem;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 1.4rem;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
 }
 
+/* ============================= */
+/* SUBTÍTULO */
+/* ============================= */
 .hero-subtitle {
-  font-size: 1.3rem;
-  margin-bottom: 2.5rem;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.92);
 }
 
-/* CTA */
-.hero-cta {
-  margin-bottom: 3rem;
-}
-
-/* Beneficios */
-.hero-benefits {
-  display: flex;
-  justify-content: flex-start;
-  gap: 1.2rem;
-  margin-top: 3rem;
-  flex-wrap: wrap;
-}
-
-
-
-.benefit-item {
+/* ============================= */
+/* UBICACIÓN */
+/* ============================= */
+.hero-location {
   display: flex;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 1rem 1.5rem;
-  border-radius: var(--border-radius-md);
-  width: 100%;
-  max-width: 220px;
-  min-height: 100px;
-  transition: var(--transition-all);
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ============================= */
+/* ACCIONES / CTA */
+/* ============================= */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions .btn-primary {
+  background-color: #ff7a00;
+  color: #fff;
+  padding: 0.9rem 2rem;
+  font-size: 1.05rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(255, 122, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.hero-actions .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(255, 122, 0, 0.55);
+}
+
+.hero-actions .btn-outline-light {
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.3s ease;
+}
+
+.hero-actions .btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ============================= */
+/* BENEFICIOS */
+/* ============================= */
+.hero-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* CARD BENEFICIO */
+.benefit-item {
+  display: flex;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 1rem;
+  border-radius: 14px;
+  transition: all 0.3s ease;
 }
 
 .benefit-item:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .benefit-icon {
-  margin-right: 1rem;
-  font-size: 1.8rem;
-  color: var(--color-accent);
-}
-
-.benefit-text {
-  color: var(--color-primary);
+  font-size: 1.4rem;
+  color: #ff7a00;
+  margin-top: 0.2rem;
 }
 
 .benefit-text h3 {
+  font-size: 0.95rem;
   font-weight: 600;
-  margin-bottom: 0.3rem;
-  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: #ffffff;
 }
 
 .benefit-text p {
   font-size: 0.85rem;
-  color: var(--color-tertiary);
   line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* ===================== */
-/* 📱 MOBILE FIXES */
-/* ===================== */
-
+/* ============================= */
+/* MOBILE */
+/* ============================= */
 @media (max-width: 768px) {
   .hero {
-    padding-top: 72px; /* altura real del header */
+    padding-top: 72px;
     min-height: calc(100vh - 72px);
+  }
+
+  .hero-container {
+    justify-content: center;
+  }
+
+  .hero-content {
+    padding: 1.6rem;
+    text-align: center;
   }
 
   .hero-title {
     font-size: 2.2rem;
-    line-height: 1.2;
   }
 
   .hero-subtitle {
     font-size: 1.05rem;
   }
 
-  .hero-benefits {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .benefit-item {
-    max-width: 280px;
-  }
-  .hero-container {
-    justify-content: center;
-    padding-left: 0;
-  }
-
-  .hero-content {
-    text-align: center;
-  }
-
-  .hero-benefits {
+  .hero-location {
     justify-content: center;
   }
 
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-benefits {
+    grid-template-columns: 1fr;
+  }
 }

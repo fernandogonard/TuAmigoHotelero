@@ -125,118 +125,160 @@ const RoomCatalog = () => {
   });
 
   return (
-    <section id="rooms" className="room-catalog section">
-      <div className="container">
-        <h2 className="section-title">Nuestras Habitaciones</h2>
-        <p className="section-subtitle">
-          Encontrá la habitación perfecta para tu estadía en Mar del Plata a precios directos de hotel.
-        </p>
-        
-        <div className="filters-container">
-          <div className="filter-group">
-            <label>Tipo de habitación:</label>
-            <select 
-              value={filter} 
-              onChange={(e) => setFilter(e.target.value)}
-              className="filter-select"
-            >
-              <option value="todos">Todas</option>
-              <option value="Single">Single</option>
-              <option value="Doble">Doble</option>
-              <option value="Triple">Triple</option>
-              <option value="Grupal">Grupal</option>
-            </select>
-          </div>
-          
-          <div className="filter-group">
-            <label>Precio máximo: ${priceRange}</label>
+   <section
+  id="habitaciones-hotel-mar-del-plata"
+  className="room-catalog section"
+  aria-labelledby="titulo-habitaciones"
+>
+  <div className="container">
+
+    {/* TÍTULO SEO */}
+    <h2 id="titulo-habitaciones" className="section-title">
+      Habitaciones en Hotel en Mar del Plata
+    </h2>
+
+    {/* TEXTO SEO + CONVERSIÓN */}
+    <p className="section-subtitle">
+      Conocé nuestras habitaciones en <strong>Mar del Plata</strong>, ideales para parejas,
+      familias, grupos y viajeros de trabajo. Tarifas directas de hotel,
+      excelente ubicación cerca de Güemes, Shopping Aldrey y la vieja terminal.
+    </p>
+
+    {/* FILTROS */}
+    <div className="filters-container" aria-label="Filtros de búsqueda de habitaciones">
+
+      <div className="filter-group">
+        <label htmlFor="tipo-habitacion">Tipo de habitación</label>
+        <select
+          id="tipo-habitacion"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          className="filter-select"
+        >
+          <option value="todos">Todas</option>
+          <option value="Single">Single</option>
+          <option value="Doble">Doble</option>
+          <option value="Triple">Triple</option>
+          <option value="Grupal">Grupal</option>
+        </select>
+      </div>
+
+      <div className="filter-group">
+        <label htmlFor="precio-maximo">
+          Precio máximo por noche: <strong>${priceRange.toLocaleString()}</strong>
+        </label>
+        <input
+          id="precio-maximo"
+          type="range"
+          min="5000"
+          max="220000"
+          step="1000"
+          value={priceRange}
+          onChange={(e) => setPriceRange(Number(e.target.value))}
+          className="price-slider"
+        />
+      </div>
+
+      <div className="filter-group services-filter">
+        <label>Servicios incluidos</label>
+        <div className="service-checkboxes">
+
+          <label className="service-checkbox">
             <input
-              type="range"
-              min="5000"
-              max="220000" // <-- valor corregido
-              step="1000"
-              value={priceRange}
-              onChange={(e) => setPriceRange(Number(e.target.value))}
-              className="price-slider"
+              type="checkbox"
+              checked={selectedServices.includes('wifi')}
+              onChange={() => handleServiceFilter('wifi')}
             />
-          </div>
-          
-          <div className="filter-group services-filter">
-            <label>Servicios:</label>
-            <div className="service-checkboxes">
-              <div className="service-checkbox">
-                <input
-                  type="checkbox"
-                  id="wifi"
-                  checked={selectedServices.includes('wifi')}
-                  onChange={() => handleServiceFilter('wifi')}
-                />
-                <label htmlFor="wifi"><FontAwesomeIcon icon={faWifi} /> Wi-Fi</label>
-              </div>
-              
-              <div className="service-checkbox">
-                <input
-                  type="checkbox"
-                  id="breakfast"
-                  checked={selectedServices.includes('breakfast')}
-                  onChange={() => handleServiceFilter('breakfast')}
-                />
-                <label htmlFor="breakfast"><FontAwesomeIcon icon={faMugHot} /> Desayuno</label>
-              </div>
-              
-              <div className="service-checkbox">
-                <input
-                  type="checkbox"
-                  id="parking"
-                  checked={selectedServices.includes('parking')}
-                  onChange={() => handleServiceFilter('parking')}
-                />
-                <label htmlFor="parking"><FontAwesomeIcon icon={faParking} /> Cochera</label>
-              </div>
-              
-              <div className="service-checkbox">
-                <input
-                  type="checkbox"
-                  id="ac"
-                  checked={selectedServices.includes('ac')}
-                  onChange={() => handleServiceFilter('ac')}
-                />
-                <label htmlFor="ac"><FontAwesomeIcon icon={faSnowflake} /> Aire acond.</label>
+            <FontAwesomeIcon icon={faWifi} /> Wi-Fi
+          </label>
+
+          <label className="service-checkbox">
+            <input
+              type="checkbox"
+              checked={selectedServices.includes('breakfast')}
+              onChange={() => handleServiceFilter('breakfast')}
+            />
+            <FontAwesomeIcon icon={faMugHot} /> Desayuno
+          </label>
+
+          <label className="service-checkbox">
+            <input
+              type="checkbox"
+              checked={selectedServices.includes('parking')}
+              onChange={() => handleServiceFilter('parking')}
+            />
+            <FontAwesomeIcon icon={faParking} /> Cochera
+          </label>
+
+          <label className="service-checkbox">
+            <input
+              type="checkbox"
+              checked={selectedServices.includes('ac')}
+              onChange={() => handleServiceFilter('ac')}
+            />
+            <FontAwesomeIcon icon={faSnowflake} /> Aire acondicionado
+          </label>
+
+        </div>
+      </div>
+    </div>
+
+    {/* GRID DE HABITACIONES */}
+    {filteredRooms.length > 0 ? (
+      <div className="rooms-grid">
+        {filteredRooms.map((room) => (
+          <article className="room-card" key={room.id}>
+
+            <div className="room-image">
+              <img
+                src={room.image}
+                alt={`${room.name} en hotel en Mar del Plata`}
+                loading="lazy"
+              />
+              <div className="room-price">
+                Desde ${room.price.toLocaleString()}
+                <span> / noche</span>
               </div>
             </div>
-          </div>
-        </div>
-        
-        {filteredRooms.length > 0 ? (
-          <div className="rooms-grid">
-            {filteredRooms.map((room) => (
-              <div className="room-card" key={room.id}>
-                <div className="room-image">
-                  <img src={room.image} alt={room.name} />
-                  <div className="room-price">Desde ${room.price.toLocaleString()}<span>/noche</span></div>
-                </div>
-                <div className="room-content">
-                  <h3 className="room-title">{room.name}</h3>
-                  <p className="room-description">{room.description}</p>
-                  <div className="room-services">
-                    {room.services.map((service) => (
-                      <ServiceIcon key={service} service={service} />
-                    ))}
-                  </div>
-                  <a href="https://wa.me/5492235203369?text=Hola!%20Quiero%20consultar%20por%20disponibilidad%20de%20habitaciones" className="btn btn-primary room-cta" target="_blank" rel="noopener noreferrer">
-                    Solicitar disponibilidad
-                  </a>
-                </div>
+
+            <div className="room-content">
+              <h3 className="room-title">{room.name}</h3>
+
+              <p className="room-description">
+                {room.description}
+              </p>
+
+              <div className="room-services" aria-label="Servicios de la habitación">
+                {room.services.map((service) => (
+                  <ServiceIcon key={service} service={service} />
+                ))}
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className="no-rooms-message">
-            <p>No encontramos habitaciones con los filtros seleccionados. Probá modificando tus criterios de búsqueda.</p>
-          </div>
-        )}
+
+              <a
+                href={`https://wa.me/5492235203369?text=Hola!%20Quiero%20consultar%20disponibilidad%20para%20${encodeURIComponent(room.name)}%20en%20Mar%20del%20Plata`}
+                className="btn btn-primary room-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Consultar disponibilidad por WhatsApp
+              </a>
+            </div>
+
+          </article>
+        ))}
       </div>
-    </section>
+    ) : (
+      <div className="no-rooms-message">
+        <p>
+          No encontramos habitaciones con los filtros seleccionados.
+          Probá modificarlos o escribinos por WhatsApp para ayudarte.
+        </p>
+      </div>
+    )}
+
+  </div>
+</section>
+
   );
 };
 
